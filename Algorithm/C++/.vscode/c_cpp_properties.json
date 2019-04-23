@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "name": "MinGW64",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "C:/mingw64/bin/g++.exe",
+            "systemIncludePath": [
+                "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0",
+                "C:/mingw64/x86_64-w64-mingw32/include"
+            ],
+            "includePath": [
+                "${workspaceFolder}"
+            ],
+
+            "browse": {
+                "path": [
+                    "${workspaceFolder}"
+                ]
+            },
+            "limitSymbolsToIncludedHeaders": true,
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}
