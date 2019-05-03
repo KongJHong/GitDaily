@@ -3,6 +3,7 @@
 #include <vector>
 #include <unordered_map>
 #include <string>
+#include <set>
 using namespace std;
  int countPrimes(int n) {
         if(n < 3)return 0;
@@ -46,10 +47,12 @@ bool containsDuplicate(vector<int>& nums) {
     }
 int main(void)
 {
-    vector<int> vec = {1,1,1,3,3,4,3,2,4,2};
-    bool flag = containsDuplicate(vec);
-    string str = flag?"yes":"no";
-    cout<<str<<endl;
+    vector<int> vec = {1,8,1,3,3,4,3,2,4,2};
+    set<int> s1(vec.begin(),vec.end());
+    for(auto num:s1)
+    {
+        cout<<num<<" ";
+    }
     system("pause");
     return 0;
 }
