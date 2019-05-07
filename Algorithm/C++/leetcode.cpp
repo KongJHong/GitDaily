@@ -4,6 +4,7 @@
 #include <unordered_map>
 #include <string>
 #include <set>
+#include <algorithm>
 using namespace std;
  int countPrimes(int n) {
         if(n < 3)return 0;
@@ -44,15 +45,64 @@ bool containsDuplicate(vector<int>& nums) {
         }
         
         return false;
+}
+
+
+int longestPalindrome(string s) {
+        unordered_map<char,int> sMap;
+        int ans = 0;
+        int sLen = s.size();
+        for(auto ch:s)
+        {
+            if(sMap.find(ch) == sMap.end())sMap[ch] = 1;
+            else sMap[ch]++;
+        }
+        
+        
+        auto iter = sMap.begin();
+        
+        for(;iter != sMap.end();iter++)
+        {
+            if(iter->second % 2)
+            {
+                ans += (int)(iter->second / 2) * 2;
+                continue;
+            }
+            ans += iter->second;
+        }
+        
+        return ans == sLen?ans:ans+1;
     }
+
+string frequencySort(string s) {
+        unordered_map<char,int> sMap;
+        
+        
+        for(auto ch:s)
+        {
+            if(sMap.find(ch) == sMap.end())sMap[ch] = 1;
+            else sMap[ch]++;
+        }
+        
+        
+        vector<pair<char,int>> vec(sMap.begin(),sMap.end());    
+
+        sort(vec.begin(),vec.end(),[=](pair<char,int> &a,pair<char,int> &b){
+            return a.second > b.second;
+        });
+
+        for(auto item:vec)
+        {
+            cout<<item.second<<":"<<item.first<<endl;
+        }
+
+        return "";
+}
 int main(void)
 {
-    vector<int> vec = {1,8,1,3,3,4,3,2,4,2};
-    set<int> s1(vec.begin(),vec.end());
-    for(auto num:s1)
-    {
-        cout<<num<<" ";
-    }
+    
+    string s = "aaaaaabbbbbeeedsdwqqrerewa";
+    frequencySort(s);
     system("pause");
     return 0;
 }

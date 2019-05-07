@@ -1,0 +1,24 @@
+dist: learn
+
+sudo: required
+
+language:
+
+- cpp
+
+compiler:
+- g++
+
+os:
+- linux
+
+install:
+- sudo apt-get install cmake
+
+script:
+- cmake . && make
+
+
+branches:
+  only:
+  - master
