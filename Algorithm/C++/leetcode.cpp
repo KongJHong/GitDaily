@@ -58,13 +58,31 @@ void word_transform(ifstream &map_file,ifstream &input)
     }
 }
 
+struct Base {
+    Base():mem(0){}
+    int get_mem(){return mem;}
+protected:
+    int mem;
+};
+
+struct Derived: Base{
+    Derived(int i):mem(i){}
+    int get_mem(){return mem;}
+    int get_base_mem(){return Base::mem;}
+protected:
+    int mem;
+};
+
+
+
 int main(void)
 {
-    ifstream file1("map_file.txt");
-    ifstream file2("input_file.txt");
-    word_transform(file1,file2);
-   
+    static char string[10] = " aefg";
+
+    cout<<sizeof(string)<<endl;
     
+
+
     system("pause");
     return 0;
 }
