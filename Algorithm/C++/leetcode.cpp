@@ -11,6 +11,7 @@
 #include <map>
 #include <fstream>
 #include <sstream>
+#include <sys/time.h>
 using namespace std;
 
 map<string,string> buildMap(ifstream &map_file)
@@ -74,14 +75,82 @@ protected:
 };
 
 
+int calculate(string s) {
+        int ans = 0,inter_ans = 0,num = 0;
+        int sz = s.size();
+        char op = '+';
+        char ch;
+        for(int pos = s.find_first_not_of(' ');pos<sz;pos=s.find_first_not_of(' ',pos))
+        {      
+            ch = s[pos];
+            if(isdigit(ch))
+            {
+                num = ch - '0';
+                while(++pos<sz && isdigit(s[pos]))
+                    num = num * 10 + ch - '0';
+                switch(op)
+                {
+                    case '+':
+                        inter_ans += num;
+                        break;
+                    case '-':
+                        inter_ans -= num;
+                        break;
+                    case '*':
+                        inter_ans *= num;
+                        break;
+                    case '/':
+                        inter_ans /= num;
+                        break;
+                    default:break;
+                }
+            }
+            else{
+                if(ch == '+' || ch == '-')
+                {
+                    ans += inter_ans;
+                    inter_ans = 0;
+                }
+                op = s[pos++];
+            }
+        }
+        
+        return ans + inter_ans;
+    }
 
+
+#include <string.h>
+class Request{
+public:
+    void setContent(const char* str){
+       // cout<<strlen(m_content)<<endl;
+        m_content = str;
+        cout<<strlen(m_content)<<endl;
+        cout<<m_content<<endl;
+    }
+
+    void setStr(const std::string &str){
+        cout<<m_str.size()<<endl;
+        m_str = str;
+        cout<<m_str<<endl;
+        cout<<m_str.size()<<endl;
+    }
+
+    const char *m_content;
+    std::string m_str;
+};
+
+
+
+#define TIME_OUT 120
 int main(void)
 {
-    static char string[10] = " aefg";
-
-    cout<<sizeof(string)<<endl;
     
+    ostringstream os;
+    os<<"timeout="<<TIME_OUT;
 
+    string str = os.str();
+    cout<<str<<endl;
 
     system("pause");
     return 0;
