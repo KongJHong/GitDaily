@@ -1,5 +1,11 @@
-Algorithm/Python/Learning Python/script0.py
-Algorithm/C++/leetcode.cpp
-CMakeProject/
-Algorithm/C++/build
-Algorithm/C++/.vscode
+CMakeProject/Build/
+CMakeProject/.vscode/
+
+Algorithm/C++/build/
+Algorithm/C++/.vscode/
+Algorithm/C++/play_with_algo-master/
+Algorithm/C++/leetcode.*
+
+Algorithm/Python/Learning Python/
+Algorithm/Python/.vscode/
+
