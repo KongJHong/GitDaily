@@ -4,7 +4,7 @@
  * @Author: KongJHong
  * @Date: 2019-05-20 08:53:27
  * @LastEditors: KongJHong
- * @LastEditTime: 2019-08-09 21:45:06
+ * @LastEditTime: 2019-08-12 14:45:17
  */
 #include <iostream>
 #include <chrono>
@@ -26,7 +26,12 @@ void func2()
 
 void func3()
 {
-	cout<<"func3..."<<endl;
+	//添加一个任务进去多线程队列中，是一个回调方法和函数
+}
+
+void func(int a)
+{
+	printf("%d----",a);
 }
 
 
